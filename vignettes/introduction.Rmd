@@ -1,0 +1,43 @@
+---
+title: "introduction to freecurrencyapi"
+author: Dominik Kukacka
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+`freecurrencyapi` is the official package for accessing currency conversion data from [freecurrencyapi.com](https://freecurrencyapi.com). The API requires a registered API key. You can register an API key [here](https://app.freecurrencyapi.com/register).
+The full API documentation can be found [here](https://freecurrencyapi.com/docs/)
+
+## Setting up authentication
+
+After registering your API key, set your API key locally by calling the helper function `freecurrencyapi_api_key()` or by manually calling `Sys.setenv(FREECURRENCYAPI_API_KEY = <key>)`.
+
+## Making your first API request
+
+Call `get_latest_exchange_rates()` to retrieve the most recent exchange rates. By default, `USD` is set as `base_currency`. For API keys related to the free plan, data is updated daily, for premium plans up to minutely.
+
+## Supported Currencies
+
+Call `get_supported_currencies` to retrieve a list of all currencies that are supported by the API. 
+
+## Available Functions
+
+* `get_api_status()` - can be used to check whether the API is available. Requests do not count towards your monthly request volume. Information about your API key are provided.
+* `get_latest_exchange_rates()` - provides you with the latest exchange rates. 
+* `get_supported_currencies()` - provides a list of all currencies that are supported by the API.
+* `get_historical_exchange_rates()` - provides exchange rate for a historical exchange rates for a given date. 
+
+Please read our [API documentation](https://freecurrencyapi.com/docs/) for all information.
